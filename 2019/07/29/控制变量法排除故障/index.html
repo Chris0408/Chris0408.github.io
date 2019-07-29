@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Chris&#39;s Blog</title>
+    <title>用控制变量法排查故障 · Chris&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -201,14 +203,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Chris&#39;s   Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">用控制变量法排查故障</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Chris's   Blog</a>
 </header>
@@ -227,17 +238,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Chris's   Blog
-            <!-- 文章页  -->
+            用控制变量法排查故障
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -245,12 +256,49 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                Do more, expect less.
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "故障排查，方法论">故障排查，方法论</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">657</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/07/29</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -351,152 +399,60 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/29/控制变量法排除故障/" >
-            
-                <span>用控制变量法排查故障</span>
-        </a>
-        <div class="abstract-content">
-            用控制变量法排除故障问题描述我们公司的合作伙伴提供了一个ftp地址，供开发人员下载相关对接数据。有一天开发同事突然联系我告知连接对方ftp时报There are too many connections from your internet address.(连接数过多)的错误。无法正常下载、回传数据。
-处理过程
-第一时间想到合作伙伴那边可能做可客户端连接数限制，询问了我们的开发同事，反馈只有一人在连接，不存在并发多人。我测试了链路发现没有问题，询问了合作公司的技术，对方表示，没有对ftp连接数做限制。
-在阿里云vpc的出口服务器上，用tcpdump抓包目的地址为对方ftp服务的ip，并...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "故障排查，方法论">故障排查，方法论</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="用控制变量法排除故障"><a href="#用控制变量法排除故障" class="headerlink" title="用控制变量法排除故障"></a>用控制变量法排除故障</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>我们公司的合作伙伴提供了一个ftp地址，供开发人员下载相关对接数据。有一天开发同事突然联系我告知连接对方ftp时报<code>There are too many connections from your internet address.</code>(连接数过多)的错误。无法正常下载、回传数据。</p>
+<h2 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h2><ol>
+<li>第一时间想到合作伙伴那边可能做可客户端连接数限制，询问了我们的开发同事，反馈只有一人在连接，不存在并发多人。我测试了链路发现没有问题，询问了合作公司的技术，对方表示，没有对ftp连接数做限制。</li>
+<li>在阿里云vpc的出口服务器上，用tcpdump抓包目的地址为对方ftp服务的ip，并将抓包结果输出到日志文件记录一段时间的抓包内容。发现每隔一段时间就会有vpc内的一台服务器A，批量建立ftp连接并且没有断开。</li>
+<li>询问我司开发同时a服务器上的跑的服务是否有连接该ftp的接口，对方反馈一共有三个服务连接该ftp，但是全部跑的是定时任务，一般在晚上执行。并且他们义正言辞的说代码里都进行了ftp断开操作。虽然说是这么说，但此时我已严重怀疑问题就出在这三个服务上。</li>
+<li>为了尽快定位是哪个服务导致了上述问题，沟通并征的开发同事同意后。先停掉了三个服务，然后用<code>控制变量法</code>，依次重启，并手动执行定时任务。依然在出口服务器保持抓包，发现前两个服务都进行了ftp的正常连接断开操作，第三个服务一直在批量创建连接并且没有没有断开。</li>
+<li>将该情况反馈给开发同事，最终对方发现代码层面在处理ftp连接时存在bug,（循环逻辑和断开ftp连接的逻辑异常）研发同事debug修复后再次启动服务并抓包，连接正常断开。其他人通过客户端连接ftp时不在报连接数过多的问题。<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2></li>
+<li>控制变量法使我们中学实验中经常用到的一种方法，有时把这种方法用在故障排查上也能快速的定位到问题。</li>
+<li>当一个开发同事拍着胸脯跟你说他的代码没有BUG时，那是万万不可信的，哈哈。</li>
+</ol>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/28/hello-world/" >
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            Hello world!
-这是博客搭建好之后的第一篇文章从实习开始，我一直都有记笔记的习惯，（因为知识盲区好多呀…）只不过之前都是在各种云笔记上记录，反正是给自己看的，觉得没必要搞一个博客,所以格式排版也比较随便，自己能看懂就行。但最近考虑到两个问题，我觉得我还是应该有一个博客。（1）在我的工作和学习过程中，通过阅读大佬们的博客，解决过很多问题。所以我希望能将自己平时的学习和工作中的一些内容也记录下来，一方面当做自己的笔记来看，另一方面如果能给其他人带来一点帮助，那就更好了~（2）现在的时代是一个终身学习的时代，IT行业更是如此。不断接触新的技术，不断学习新的知识，有时候难免会遇到失去学...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="chris0408.github.io">Chris</a>
+            <p>原文链接：<a href="chris0408.github.io/2019/07/29/控制变量法排除故障/">chris0408.github.io/2019/07/29/控制变量法排除故障/</a>
+            <p>发表日期：<a href="chris0408.github.io/2019/07/29/控制变量法排除故障/">July 29th 2019, 10:17:37 pm</a>
+            <p>更新日期：<a href="chris0408.github.io/2019/07/29/控制变量法排除故障/">July 29th 2019, 10:38:27 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "随笔">随笔</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/24953356.png >
-    <div class="profile-name">Chris</div>
-    
-    <div class="profile-signature">
-        Freedom
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+        </li>
+        <li class="previous">
             
-                <a href="mailto:chris_0408@qq.com" class="iconfont-archer email" title=email ></a>
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/07/28/hello-world/" title= "Hello World">
+                    <div class="prevTitle">Hello World</div>
+                </a>
             
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
     
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-            
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -568,6 +524,24 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#用控制变量法排除故障"><span class="toc-number">1.</span> <span class="toc-text">用控制变量法排除故障</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">1.1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理过程"><span class="toc-number">1.2.</span> <span class="toc-text">处理过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -710,6 +684,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
