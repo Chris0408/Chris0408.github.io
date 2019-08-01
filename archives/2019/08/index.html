@@ -346,26 +346,23 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/29/控制变量法排除故障/" >
+        <a class="abstract-title" href = "/2019/08/01/Ubuntu无法启动故障处理/" >
             
-                <span>用控制变量法排查故障</span>
+                <span>记录一次Ubuntu系统无法正常启动故障处理</span>
         </a>
         <div class="abstract-content">
-            用控制变量法排除故障问题描述我们公司的合作伙伴提供了一个ftp地址，供开发人员下载相关对接数据。有一天开发同事突然联系我告知连接对方ftp时报There are too many connections from your internet address.(连接数过多)的错误。无法正常下载、回传数据。
-处理过程
-第一时间想到合作伙伴那边可能做可客户端连接数限制，询问了我们的开发同事，反馈只有一人在连接，不存在并发多人。我测试了链路发现没有问题，询问了合作公司的技术，对方表示，没有对ftp连接数做限制。
-在阿里云vpc的出口服务器上，用tcpdump抓包目的地址为对方ftp服务的ip，并...
+            记录一次Ubuntu系统无法正常启动故障处理问题背景&emsp;&emsp;公司的服务基本上都跑在阿里云的ECS上，公司自建的网络机房中只有少数几台物理服务器是供平时测试和人工智能小组跑算法训练用的。上边跑的服务一直都很稳定，没怎么到机房管过这几台机器，平时都是ssh过去处理一些问题。&emsp;&emsp;结果今天上午的时候，人工智能组的算法大佬突然跑过来跟我说，他们跑模型用的一台高性能服务器（OS:Ubuntu14.0;Kernel:4.4.0）手动重启后，一直无法远程连接。（GPU服务器，大佬们更新一些显卡驱动之类的经常需要reboot之后生效）我快速ssh和ping了下，发现确实...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/01</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "故障排查  方法论">故障排查  方法论</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "故障排查  Linux">故障排查  Linux</a>
     
 </div>
             
