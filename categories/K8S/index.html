@@ -351,10 +351,10 @@
                 <span>K8S使用Spring Boot Actuator健康检查</span>
         </a>
         <div class="abstract-content">
-            K8S使用Spring Boot Actuator健康检查注意事项公司之前的集群一直用的是阿里云容器服务Swarm版。但是之前阿里云发公告称19年12月31日之后，将停止维护swarm集群，并下线控制台，开始主推K8S集群。我们也开始逐步将服务迁移至K8S集群，K8S使用Spring Boot Actuator健康检查出现的问题就是在迁移过程中遇到的，在此记录一下。
+            K8S使用Spring Boot Actuator健康检查公司之前的集群一直用的是阿里云容器服务Swarm版。但是之前阿里云发公告称19年12月31日之后，将停止维护swarm集群，并下线控制台，开始主推K8S集群。我们也开始逐步将服务迁移至K8S集群，在K8S中使用Spring Boot Actuator健康检查时出现了一些小问题，在此记录一下。
 K8S的健康检查机制K8S提供两类探针，可以对POD的健康状态进行检查
 
-K8S使用Spring Boot Actuator健康检查用于判断容器是否存活，即Pod是否为running状态，如果LivenessProbe探针探...
+K8S使用Spring Boot Actuator健康检查用于判断容器是否存活，即Pod是否为running状态，如果LivenessProbe探针探测到容器不健康，则...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -549,15 +549,15 @@ K8S使用Spring Boot Actuator健康检查用于判断容器是否存活，即Pod
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
+        <span class="sidebar-tag-name" data-tags="故障排查"><span class="iconfont-archer">&#xe606;</span>故障排查</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="故障排查"><span class="iconfont-archer">&#xe606;</span>故障排查</span>
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="K8S"><span class="iconfont-archer">&#xe606;</span>K8S</span>
+    
+        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
     
         <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
@@ -596,11 +596,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Docker"><span class="iconfont-archer">&#xe60a;</span>Docker</span>
-    
         <span class="sidebar-category-name" data-categories="故障排查"><span class="iconfont-archer">&#xe60a;</span>故障排查</span>
     
         <span class="sidebar-category-name" data-categories="K8S"><span class="iconfont-archer">&#xe60a;</span>K8S</span>
+    
+        <span class="sidebar-category-name" data-categories="Docker"><span class="iconfont-archer">&#xe60a;</span>Docker</span>
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     

@@ -274,7 +274,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">975</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">966</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -403,7 +403,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="K8S使用Spring-Boot-Actuator健康检查注意事项"><a href="#K8S使用Spring-Boot-Actuator健康检查注意事项" class="headerlink" title="K8S使用Spring Boot Actuator健康检查注意事项"></a>K8S使用Spring Boot Actuator健康检查注意事项</h1><p>公司之前的集群一直用的是阿里云容器服务Swarm版。但是之前阿里云发公告称19年12月31日之后，将停止维护swarm集群，并下线控制台，开始主推K8S集群。我们也开始逐步将服务迁移至K8S集群，K8S使用<code>Spring Boot Actuator</code>健康检查出现的问题就是在迁移过程中遇到的，在此记录一下。</p>
+        <h1 id="K8S使用Spring-Boot-Actuator健康检查"><a href="#K8S使用Spring-Boot-Actuator健康检查" class="headerlink" title="K8S使用Spring Boot Actuator健康检查"></a>K8S使用Spring Boot Actuator健康检查</h1><p>公司之前的集群一直用的是阿里云容器服务Swarm版。但是之前阿里云发公告称19年12月31日之后，将停止维护swarm集群，并下线控制台，开始主推K8S集群。我们也开始逐步将服务迁移至K8S集群，在K8S中使用<code>Spring Boot Actuator</code>健康检查时出现了一些小问题，在此记录一下。</p>
 <h2 id="K8S的健康检查机制"><a href="#K8S的健康检查机制" class="headerlink" title="K8S的健康检查机制"></a>K8S的健康检查机制</h2><p>K8S提供两类探针，可以对POD的健康状态进行检查</p>
 <ul>
 <li>K8S使用Spring Boot Actuator健康检查<br>用于判断容器是否存活，即Pod是否为running状态，如果LivenessProbe探针探测到容器不健康，则kubelet将kill掉容器，并根据容器的重启策略决定是否重启，如果一个容器不包含LivenessProbe探针，则Kubelet认为容器的LivenessProbe探针的返回值永远成功。</li>
@@ -422,7 +422,7 @@ height:50vh;
             <p>原文作者：<a href="chris0408.github.io">Chris</a>
             <p>原文链接：<a href="chris0408.github.io/2019/08/08/K8S使用Spring Boot Actuator健康检查注意事项/">chris0408.github.io/2019/08/08/K8S使用Spring Boot Actuator健康检查注意事项/</a>
             <p>发表日期：<a href="chris0408.github.io/2019/08/08/K8S使用Spring Boot Actuator健康检查注意事项/">August 8th 2019, 12:00:00 am</a>
-            <p>更新日期：<a href="chris0408.github.io/2019/08/08/K8S使用Spring Boot Actuator健康检查注意事项/">August 8th 2019, 11:26:34 pm</a>
+            <p>更新日期：<a href="chris0408.github.io/2019/08/08/K8S使用Spring Boot Actuator健康检查注意事项/">August 8th 2019, 11:30:00 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -543,7 +543,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#K8S使用Spring-Boot-Actuator健康检查注意事项"><span class="toc-number">1.</span> <span class="toc-text">K8S使用Spring Boot Actuator健康检查注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K8S的健康检查机制"><span class="toc-number">1.1.</span> <span class="toc-text">K8S的健康检查机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Boot-Actuator健康检查"><span class="toc-number">1.2.</span> <span class="toc-text">Spring Boot Actuator健康检查</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#K8S使用Spring-Boot-Actuator健康检查"><span class="toc-number">1.</span> <span class="toc-text">K8S使用Spring Boot Actuator健康检查</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K8S的健康检查机制"><span class="toc-number">1.1.</span> <span class="toc-text">K8S的健康检查机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Boot-Actuator健康检查"><span class="toc-number">1.2.</span> <span class="toc-text">Spring Boot Actuator健康检查</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -645,15 +645,15 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
+        <span class="sidebar-tag-name" data-tags="故障排查"><span class="iconfont-archer">&#xe606;</span>故障排查</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="故障排查"><span class="iconfont-archer">&#xe606;</span>故障排查</span>
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="K8S"><span class="iconfont-archer">&#xe606;</span>K8S</span>
+    
+        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
     
         <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
@@ -692,11 +692,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Docker"><span class="iconfont-archer">&#xe60a;</span>Docker</span>
-    
         <span class="sidebar-category-name" data-categories="故障排查"><span class="iconfont-archer">&#xe60a;</span>故障排查</span>
     
         <span class="sidebar-category-name" data-categories="K8S"><span class="iconfont-archer">&#xe60a;</span>K8S</span>
+    
+        <span class="sidebar-category-name" data-categories="Docker"><span class="iconfont-archer">&#xe60a;</span>Docker</span>
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
