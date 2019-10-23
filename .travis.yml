@@ -13,7 +13,7 @@ install: # 在安装项目环境阶段需要运行的命令，一条一行，类
   - npm install -g hexo  # 执行指定的 shell 命令来做初始化
   - npm install -g hexo-cli
   - npm install
-  - sed -i'' "s~git@github.com:~https://s~git@github.com:~https://${GIT_REPO_TOKEN}@github.com/~" _config.yml
+  - sed -i "s/gh_token/${GIT_REPO_TOKEN}/g" ./_config.yml
 script: # 在构建阶段需要运行的命令，一条一行，类似的还有 before_script、after_script
   - hexo clean
   - hexo generate # Hexo 常规命令，执行清理和生成

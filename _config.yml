@@ -8,7 +8,7 @@ theme: archer
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:Chris0408/chris0408.github.io.git
+  repo: gh_token@github.com:Chris0408/chris0408.github.io.git
   branch: master
 
 
