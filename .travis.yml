@@ -4,12 +4,9 @@ node_js:
   - "11.0.0" # 指定 NodeJS 版本
 dist: xenial # 指定系统版本。
 sudo: required # 是否需要 sudo 权限
-cache: npm   # 缓存npm modules
-
-addons:
-  ssh_known_hosts: 
-  - github.com
-  - 192.30.253.113
+cache:         # 缓存npm modules
+  directories:
+    - node_modules
 
 branches: # 指定要构建的分支
   only: # only 表示只构建以下分支
