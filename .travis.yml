@@ -7,7 +7,9 @@ sudo: required # 是否需要 sudo 权限
 cache: npm   # 缓存npm modules
 
 addons:
-  ssh_known_hosts: github.com
+  ssh_known_hosts: 
+  - github.com
+  - 192.30.253.113
 
 branches: # 指定要构建的分支
   only: # only 表示只构建以下分支
