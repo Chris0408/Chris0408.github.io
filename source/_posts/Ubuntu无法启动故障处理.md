@@ -1,5 +1,6 @@
 ---
 title:  记录一次Ubuntu系统无法正常启动故障处理
+date: 2019-9-10
 tags: 
 - 故障排查
 - Linux
