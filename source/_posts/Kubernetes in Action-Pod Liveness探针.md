@@ -4,7 +4,7 @@ tags:
 - K8S
 categories: 
 - K8S
-date: 2019-1-13
+date: 2020-1-13
 ---
 # Kubernetes in Action - Pod Liveness探针使用
 
